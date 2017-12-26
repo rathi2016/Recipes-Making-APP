@@ -1,3 +1,4 @@
+
 <%= form_for(recipe) do |f| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation">
@@ -13,14 +14,22 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, id: :recipe_title %>
   </div>
 
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, id: :recipe_description%>
   </div>
+<div class="field">
+  <%= f.nested_fields_for :ingredients do |ingredient| %>
+    <%= ingredient.text_field :content  %>
+    <%= ingredient.remove_nested_fields_link  %>
+  <% end %>
+</div>
 
+
+  <% f.add_nested_fields_link :ingredients%>
   <div class="actions">
     <%= f.submit %>
   </div>
