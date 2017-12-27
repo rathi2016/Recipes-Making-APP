@@ -30,6 +30,14 @@
   <%= f.add_nested_fields_link :ingredients%>
 </div>
 
+<div class="form-group">
+  <%= f.nested_fields_for :steps do |step| %>
+    <%= step.remove_nested_fields_link  %>
+    <%= step.text_field :direction, class:"form-control"  %>
+  <% end %>
+  <%= f.add_nested_fields_link :steps%>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
