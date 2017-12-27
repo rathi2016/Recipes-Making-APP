@@ -21,15 +21,15 @@
     <%= f.label :description %>
     <%= f.text_area :description, id: :recipe_description%>
   </div>
+
 <div class="field">
   <%= f.nested_fields_for :ingredients do |ingredient| %>
-    <%= ingredient.text_field :content  %>
-    <%= ingredient.remove_nested_fields_link  %>
+  <%= ingredient.remove_nested_fields_link  %>
+  <%= ingredient.text_field :content  %>
   <% end %>
+  <% f.add_nested_fields_link :ingredients%>
 </div>
 
-
-  <% f.add_nested_fields_link :ingredients%>
   <div class="actions">
     <%= f.submit %>
   </div>
