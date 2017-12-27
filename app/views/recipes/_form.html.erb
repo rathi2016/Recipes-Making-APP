@@ -12,22 +12,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, id: :recipe_title %>
+    <%= f.text_field :title, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, id: :recipe_description%>
+    <%= f.text_area :description, class:"form-control"%>
   </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.nested_fields_for :ingredients do |ingredient| %>
-  <%= ingredient.remove_nested_fields_link  %>
-  <%= ingredient.text_field :content  %>
+    <%= ingredient.remove_nested_fields_link  %>
+    <%= ingredient.text_field :content, class:"form-control"  %>
   <% end %>
-  <% f.add_nested_fields_link :ingredients%>
+  <%= f.add_nested_fields_link :ingredients%>
 </div>
 
   <div class="actions">
