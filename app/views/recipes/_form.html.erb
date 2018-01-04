@@ -13,8 +13,14 @@
   <% end %>
 
 <div class="form-group">
+
   <%= f.label :image %>
-  <%=f.file_field :image %>
+    <%=f.file_field :image %>
+    <% if @recipe.image? %>
+      <%= image_tag @recipe.image.url, class: "recipe-show" %>
+    <%= f.check_box :remove_image %>
+        Remove Image
+    <% end %>
 </div>
 
   <div class="form-group">
