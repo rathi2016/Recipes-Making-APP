@@ -19,6 +19,10 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'nested_form_fields'
 gem 'carrierwave', '~> 1.0'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'sqlite3'
